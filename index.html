@@ -1,14 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Card 2026</title>
+  <meta charset="UTF-8">
+  <title>Beautiful Card</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  perspective: 1200px;
+}
+
+.card {
+  width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(45deg, #00f2ff, #ff00ff, #00ff88);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.card-content {
+  padding: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.card-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.card-content button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #00f2ff, #ff00ff);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-content button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 0, 255, 0.6);
+}
+
+  </style>
 </head>
 <body>
-    <h2>card</h2>
-    <div style="width:500px;height: 400px;background-color: red;">
-        <h2>hello student</h2>
+
+  <div class="container">
+    <div class="card" id="card">
+      <div class="card-content">
+        <h2>Premium Card</h2>
+        <p>
+          This is one of the most beautiful UI cards created using
+          HTML, CSS & JavaScript with glassmorphism and 3D hover effects.
+        </p>
+        <button>Explore More</button>
+      </div>
     </div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+
+document.addEventListener("mousemove", (e) => {
+  const xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+  const yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+
+  card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+
+document.addEventListener("mouseleave", () => {
+  card.style.transform = "rotateY(0deg) rotateX(0deg)";
+});
+
+  </script>
 </body>
 </html>
